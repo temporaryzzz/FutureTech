@@ -263,6 +263,10 @@ svg * {
   }
 }
 
+html.lock {
+  overflow: hidden;
+}
+
 body {
   font-size: clamp(0.875rem, 0.8112745098rem + 0.2614379085vw, 1.125rem);
   font-family: var(--font-famaly-base);
@@ -490,10 +494,16 @@ a[class] {
   align-self: end;
 }
 
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 .header__promo {
   padding-block: 1.25rem;
   text-align: center;
   border-bottom: var(--border-default);
+  background-color: var(--color-dark);
 }
 @media (width <= 47.99875rem) {
   .header__promo {

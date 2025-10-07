@@ -1,10 +1,15 @@
 @use "../helpers" as *;
 
 .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
     &__promo {
         padding-block: rem(20);
         text-align: center;
         border-bottom: var(--border-default);
+        background-color: var(--color-dark);
 
         @include mobile {
             padding-block: rem(40) rem(14);
