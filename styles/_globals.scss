@@ -11,10 +11,16 @@ body {
     //include в селекторах лучше всегда писать в начале
     @include fluid-text(18, 14);
 
+    display: flex;
+    flex-direction: column;
     font-family: var(--font-famaly-base);
     color: var(--color-gray-50);
     background-color: var(--color-dark);
     letter-spacing: -0.03em;
+}
+
+main {
+    flex-grow: 1;
 }
 
 h1, .h1,

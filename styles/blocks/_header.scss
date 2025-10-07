@@ -4,6 +4,17 @@
     position: sticky;
     top: 0;
     z-index: 100;
+    animation-name: scroll-header;
+    animation-fill-mode: both;
+    animation-range: rem(100) rem(200);
+    animation-timeline: scroll();
+
+
+    @keyframes scroll-header {
+        to {
+            box-shadow: 0 0 8rem 0 var(--color-dark);
+        }
+    }
 
     &__promo {
         padding-block: rem(20);
