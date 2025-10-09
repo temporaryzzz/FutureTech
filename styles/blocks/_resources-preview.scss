@@ -7,9 +7,32 @@
     row-gap: rem(30);
     align-items: start;
 
+    @include laptop {
+        row-gap: rem(20);       
+    }
+
+    @include tablet {
+        row-gap: rem(20);
+    }
+
     &__body {
         display: flex;
         flex-direction: column;
         row-gap: rem(15);
+
+        @include laptop {
+            row-gap: rem(6);       
+        }
+
+        @include mobile {
+            row-gap: rem(4);
+        }
     }
+
+    &__button {
+        @include mobile {
+            width: calc(100vw - var(--container-padding-x) * 2 - rem(40));
+        }
+    }
+    
 }

@@ -5,6 +5,14 @@
     display: grid;
     row-gap: rem(30);
 
+    @include laptop {
+        row-gap: rem(20);
+    }
+
+    @include mobile {
+        row-gap: rem(13);
+    }
+
     &__link {
         --circleSize: #{rem(52)};
         --circleMarginLeft: #{rem(20)};
@@ -13,6 +21,17 @@
         display: grid;
         row-gap: rem(5);
         padding-right: calc(var(--circleSize + var(--circleMarginLeft)));
+
+        @include laptop {
+            --circleSize: #{rem(44)};
+            --circleMarginLeft: #{rem(14)};
+
+            row-gap: rem(2);
+        }
+
+        @include mobile {
+            --circleSize: #{rem(40)};
+        }
 
         &::after {
             @include square(var(--circleSize));
@@ -32,5 +51,16 @@
         @include fluid-text(20, 14);
         
         font-family: var(--font-famaly-accent);
+    }
+
+    &__image {
+        @include laptop {
+            //Высота встанет автоматитечски 40
+            width: rem(40);
+        }
+
+        @include mobile {
+            width: rem(30);
+        }
     }
 }

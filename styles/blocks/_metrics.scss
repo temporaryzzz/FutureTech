@@ -12,6 +12,17 @@
         row-gap: rem(10);
         padding: rem(50);
 
+        @include laptop {
+            row-gap: rem(2);
+            padding-top: rem(30);
+            padding-right: rem(40);
+        }
+
+        @include mobile {
+            row-gap: rem(0);
+            padding: rem(20);
+        }
+
         &:first-child {
             padding-left: rem(0);
         }

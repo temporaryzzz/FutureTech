@@ -11,12 +11,26 @@
     border: var(--border-default);
     border-radius: rem(100);
 
+    @include laptop {
+        padding: rem(8); 
+        //Вот здесь переопределяем
+        --personImageSize: #{rem(50)};   
+    }
+
+    @include tablet {
+        --personImageSize: #{rem(40)};   
+    }
+
     &__person {
         width: var(--personImageSize);
         height: var(--personImageSize);
         background-color: var(--color-dark-15);
         border: rem(2) solid var(--color-dark-40);
         border-radius: 100%;
+
+        @include laptop {
+            border-width: rem(1);    
+        }
 
         &:not(:last-child) {
             //Смещение картинок на ~25% по макету
