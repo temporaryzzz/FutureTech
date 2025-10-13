@@ -1,0 +1,23 @@
+@use "../helpers" as *;
+
+
+.section {
+    &__header {
+        padding-block: fluid(120, 40);
+        background: var(--color-dark-10);
+
+        &-info {
+            display: grid;
+            align-items: start;
+            row-gap: rem(16);
+
+            @include laptop {
+                row-gap: rem(10);    
+            }
+        }
+    }
+
+    &__body {
+        border-block: var(--border-default);
+    }
+}
