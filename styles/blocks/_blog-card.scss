@@ -1,0 +1,32 @@
+@use "../helpers" as *;
+
+.blog-card {
+    display: grid;
+    grid-template-columns: 25% 60% auto;
+    align-items: center;
+    column-gap: rem(50);
+    padding-block: fluid(80, 40);
+
+    @include laptop {
+        column-gap: rem(40);
+    }
+
+    &__date {
+        font-size: fluid(20, 16);
+        font-weight: 600;
+    }
+
+    &__body {
+        display: grid;
+        row-gap: fluid(30, 20);
+    }
+
+    &__info {
+        display: grid;
+        row-gap: fluid(10, 4);
+    }
+
+    &__link {
+        padding: rem(18) rem(24);
+    }
+}
