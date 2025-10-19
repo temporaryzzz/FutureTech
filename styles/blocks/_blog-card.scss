@@ -2,13 +2,21 @@
 
 .blog-card {
     display: grid;
-    grid-template-columns: 25% 60% auto;
+    grid-template-columns: 24% 1fr auto;
     align-items: center;
-    column-gap: rem(50);
+    column-gap: fluid(50, 28);
     padding-block: fluid(80, 40);
 
     @include laptop {
         column-gap: rem(40);
+    }
+    
+    @include mobile {
+        grid-template-columns: 1fr auto;
+        grid-template-areas: 
+            'author link'
+            'body body';
+        row-gap: rem(30);
     }
 
     &__date {
@@ -19,6 +27,11 @@
     &__body {
         display: grid;
         row-gap: fluid(30, 20);
+
+        @include mobile {
+            grid-area: body;
+            row-gap: rem(20);
+        }
     }
 
     &__info {
@@ -28,5 +41,15 @@
 
     &__link {
         padding: rem(18) rem(24);
+
+        @include mobile {
+            grid-area: link;
+        }
+    }
+
+    &__author {
+        @include mobile {
+            grid-area: author;
+        }
     }
 }

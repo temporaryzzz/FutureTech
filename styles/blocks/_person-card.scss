@@ -8,7 +8,7 @@
 
     &__image {
         width: rem(80);
-        border-radius: rem(42);
+        border-radius: 50%;
         background-color: var(--color-dark-15);
 
         @include laptop {
@@ -17,8 +17,11 @@
     }
 
     &__body {
-        row-gap: rem(2);
         align-items: center;
+
+        @include laptop-above {
+            row-gap: rem(2);
+        }
     }
 
     &__name {

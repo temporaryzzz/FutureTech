@@ -4,6 +4,10 @@
 
     &__header {
         border-bottom: var(--border-default);
+
+        @include tablet {
+            overflow-x: auto;
+        }
     }
 
     &__buttons {
@@ -14,6 +18,11 @@
 
         @include laptop {
             column-gap: rem(14);
+        }
+
+        @include tablet {
+            overflow-x: auto;
+            width: max-content;
         }
     }
 
@@ -44,7 +53,11 @@
 
     &__content {
         &:not(.active) {
-            display: none;
+            display: none; 
+        }
+
+        &:focus-visible {
+            outline-offset: -1rem;
         }
     }
 }

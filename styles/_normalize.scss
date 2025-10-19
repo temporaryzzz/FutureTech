@@ -141,12 +141,6 @@ label {
   cursor: pointer;
 }
 
-/**
-  Приводим к единому цвету svg-элементы
- */
-[fill] {
-  fill: currentColor;
-}
 [stroke] {
   stroke: currentColor;
 }
