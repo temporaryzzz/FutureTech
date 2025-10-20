@@ -22,12 +22,27 @@ class Tabs {
         this.tabsElement = tabsElement
         this.buttonElements = this.tabsElement.querySelectorAll(this.selectors.button)
         this.contentElements = this.tabsElement.querySelectorAll(this.selectors.content)
-        this.state = {
+        this.state = this.getProxyState({
             activeTabIndex: [...this.buttonElements]
             .findIndex((buttonElement) => {buttonElement.classList.contains(this.stateClasses.isActive)})
-        }
+        })
         this.limitTabIndex = this.buttonElements.length - 1
         this.bindEvents()
+    }
+
+    getProxyState(initialState) {
+        return new Proxy(initialState, {
+            get: (target, prop) => {
+                return target[prop]
+            },
+            set: (target, prop, value) => {
+                target[prop] = value
+
+                this.updateUI()
+
+                return true
+            },
+        })
     }
 
     updateUI() {
@@ -50,7 +65,6 @@ class Tabs {
 
     onButtonClick(buttonIndex) {
         this.state.activeTabIndex = buttonIndex
-        this.updateUI()
     }
 
     activateTab(newTabIndex) {
@@ -96,19 +110,17 @@ class Tabs {
         const isMacEndKey = metakey && code === 'ArrowRight'
 
         if(isMacHomeKey) {
-            this.homeTab()
-            this.updateUI()
+            this.homeTab()     
             return
         }
 
         if(isMacEndKey) {
             this.endTab()
-            this.updateUI()
             return
         }
 
         action?.()
-        this.updateUI()
+        
     }
 
     bindEvents() {
