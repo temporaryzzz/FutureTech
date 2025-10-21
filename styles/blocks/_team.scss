@@ -37,4 +37,19 @@
             margin-right: calc(var(--personImageSize) / 4 * -1);
         }
     }
+
+    &--rectangle {
+        --personImageSize: #{rem(50)};
+
+        border-radius: rem(13);
+        border: var(--border-default);
+        background-color: var(--color-dark);
+        width: max-content;
+
+        @include laptop {
+            padding: rem(8); 
+            --personImageSize: #{rem(40)};   
+        }
+    }
+
 }

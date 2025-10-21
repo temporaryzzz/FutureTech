@@ -1,0 +1,11 @@
+@use "../helpers" as *;
+
+.download-info {
+    display: flex;
+    flex-direction: column-reverse;
+    row-gap: rem(4);
+
+        &__title {
+            font-weight: 700;
+        }
+}
