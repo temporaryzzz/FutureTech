@@ -1232,6 +1232,14 @@ a[class] {
     padding: 1.875rem 0;
   }
 }
+.card__body--no-padding-block {
+  padding-block: 0;
+}
+@media (width <= 93.81125rem) {
+  .card__body--no-padding-block {
+    padding: 0;
+  }
+}
 .card__grid {
   display: grid;
 }
@@ -1260,6 +1268,27 @@ a[class] {
     grid-template-columns: auto 1fr;
   }
 }
+.card__grid--3-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-right: 3.75rem;
+}
+@media (width <= 93.81125rem) {
+  .card__grid--3-cols {
+    padding: 1.875rem 0;
+  }
+}
+@media (width <= 63.99875rem) {
+  .card__grid--3-cols {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .card__grid--3-cols:last-child {
+    padding-bottom: 0;
+  }
+  .card__grid--3-cols:first-child {
+    padding-top: 0;
+  }
+}
 .card__cell {
   display: flex;
   flex-direction: column;
@@ -1268,6 +1297,28 @@ a[class] {
 }
 .card__cell--wide {
   grid-column: -1/1;
+}
+.card__cell--center {
+  align-items: center;
+  padding-block: clamp(2.5rem, 1.694214876rem + 3.305785124vw, 5rem);
+  padding-right: 3.125rem;
+  padding-left: 3.125rem;
+  row-gap: 2.5rem;
+}
+@media (width <= 93.81125rem) {
+  .card__cell--center {
+    row-gap: 1.875rem;
+  }
+}
+@media (width <= 63.99875rem) {
+  .card__cell--center:not(:last-child) {
+    border-bottom: var(--border-default);
+  }
+}
+@media (width > 63.99875rem) {
+  .card__cell--center:nth-child(1), .card__cell--center:nth-child(2) {
+    border-right: var(--border-default);
+  }
 }
 .card__cell-link {
   align-self: center;
@@ -1367,20 +1418,30 @@ a[class] {
 }
 
 .person-card {
+  --image-size: 5rem;
   padding-block: clamp(2.5rem, 1.694214876rem + 3.305785124vw, 5rem);
   display: flex;
   align-items: center;
   column-gap: clamp(0.5rem, 0.3388429752rem + 0.6611570248vw, 1rem);
 }
-.person-card__image {
-  width: 5rem;
-  border-radius: 50%;
-  background-color: var(--color-dark-15);
+@media (width <= 93.81125rem) {
+  .person-card {
+    --image-size: 3.75rem;
+  }
+}
+.person-card--review {
+  --image-size: 3.75rem;
+  padding-block: 0;
 }
 @media (width <= 93.81125rem) {
-  .person-card__image {
-    width: 3.75rem;
+  .person-card--review {
+    --image-size: 3.125rem;
   }
+}
+.person-card__image {
+  width: var(--image-size);
+  border-radius: 50%;
+  background-color: var(--color-dark-15);
 }
 .person-card__body {
   align-items: center;
@@ -1513,6 +1574,50 @@ a[class] {
 }
 .download-info__title {
   font-weight: 700;
+}
+
+.review-card {
+  position: relative;
+  text-align: center;
+  color: var(--color-light);
+  height: clamp(8.6875rem, 7.7004132231rem + 4.0495867769vw, 11.75rem);
+  padding: clamp(1.25rem, 1.048553719rem + 0.826446281vw, 1.875rem);
+  padding-top: clamp(1.875rem, 1.472107438rem + 1.652892562vw, 3.125rem);
+}
+.review-card__rating {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  top: 0;
+  display: inline-flex;
+  column-gap: 0.4375rem;
+  padding: 0.625rem 1rem;
+  border-radius: 6.25rem;
+  border: var(--border-default);
+  background-color: var(--color-dark);
+}
+@media (width <= 93.81125rem) {
+  .review-card__rating {
+    column-gap: 0.25rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+.review-card__rating-star {
+  --size: 1.5rem;
+  width: var(--size);
+  height: var(--size);
+  background: url("../../icons/star-grey.svg") center/contain;
+  background-repeat: no-repeat;
+}
+.review-card__rating-star.active {
+  background: url("../../icons/star-yellow.svg") center/contain;
+  background-repeat: no-repeat;
+}
+@media (width <= 93.81125rem) {
+  .review-card__rating-star {
+    --size: 1.25rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,19 +1,31 @@
 @use "../helpers" as *;
 
 .person-card {
+    --image-size: #{rem(80)};
+
     padding-block: fluid(80, 40);
     display: flex;
     align-items: center;
     column-gap: fluid(16, 8);
 
-    &__image {
-        width: rem(80);
-        border-radius: 50%;
-        background-color: var(--color-dark-15);
+    @include laptop {
+        --image-size: #{rem(60)};
+    }
+
+    &--review {
+        --image-size: #{rem(60)};
+
+        padding-block: 0;
 
         @include laptop {
-            width: rem(60);
+            --image-size: #{rem(50)};
         }
+    }
+
+    &__image {
+        width: var(--image-size);
+        border-radius: 50%;
+        background-color: var(--color-dark-15);
     }
 
     &__body {
