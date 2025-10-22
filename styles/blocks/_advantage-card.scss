@@ -14,36 +14,11 @@
     }
 
     &__link {
-        --circleSize: #{rem(52)};
-        --circleMarginLeft: #{rem(20)};
-
-        position: relative;
         display: grid;
         row-gap: rem(5);
-        padding-right: calc(var(--circleSize + var(--circleMarginLeft)));
 
         @include laptop {
-            --circleSize: #{rem(44)};
-            --circleMarginLeft: #{rem(14)};
-
             row-gap: rem(2);
-        }
-
-        @include mobile {
-            --circleSize: #{rem(40)};
-        }
-
-        &::after {
-            @include square(var(--circleSize));
-            @include abs-y;
-
-            right: 0;
-            background-color: var(--main-accent);
-            background-image: url("../../icons/arrow-top-right_black.svg");
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 100%;
-            content: '';
         }
     }
 

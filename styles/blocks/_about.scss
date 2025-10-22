@@ -1,0 +1,89 @@
+@use "../helpers" as *;
+
+.about {
+    padding-block: fluid(120, 40);
+    background-color: var(--color-dark-10);
+
+    &__inner {
+        display: grid;
+        row-gap: fluid(100, 40);
+    }
+
+    &__header {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: 
+            'icon info'
+            'icon description';
+        column-gap: fluid(80, 20);
+        row-gap: rem(30);
+
+        @include laptop {
+            row-gap: rem(20);
+        }
+
+        @include mobile {
+            grid-template-areas: 
+                'icon subtitle'
+                'title title'
+                'description description';
+        }
+    }
+
+    &__icon {
+        grid-area: icon;
+        align-self: center;
+        width: fluid(150, 60);
+    }
+
+    &__description {
+        grid-area: description;
+    }
+
+    &__title {
+        @include mobile {
+            grid-area: title;
+        }
+    }
+
+    &__subtitle {
+        @include mobile {
+            grid-area: subtitle;
+            align-self: center;
+        }
+    }
+
+    &__info {
+        display: grid;
+        grid-area: info;
+        row-gap: rem(16);
+
+        @include laptop {
+            row-gap: rem(10);
+        }
+
+        @include mobile {
+            display: contents;
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: rem(20);
+        padding: rem(20);
+        background-color: var(--color-dark);
+        border: var(--border-default);
+        border-radius: rem(12);
+
+        @include laptop {
+            padding: rem(10);
+            border-radius: rem(10);
+        }
+
+        @include tablet {
+            grid-template-columns: 1fr;
+            row-gap: rem(10);
+        }
+    }
+}

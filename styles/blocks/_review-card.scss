@@ -7,6 +7,9 @@
     height: fluid(188, 139);
     padding: fluid(30, 20);
     padding-top: fluid(50, 30);
+    max-width: rem(550);
+    //Центрируем по горизонтали
+    margin-inline: auto;
 
     &__rating {
         @include abs-center;
